@@ -1,0 +1,28 @@
+{
+  "name": "api-gerenciador-tarefas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API de gerenciamento de tarefas com Bun, TypeScript e Clean Architecture.",
+  "scripts": {
+    "dev": "bun --watch src/server.ts",
+    "start": "bun src/server.ts",
+    "lint": "eslint \"src/**/*.ts\" --fix",
+    "db:migrate": "bun prisma migrate dev",
+    "db:studio": "bun prisma studio"
+  },
+  "dependencies": {
+    "@fastify/cors": "^9.0.1",
+    "@prisma/client": "5.10.2",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.26.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^20.11.24",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "prisma": "5.10.2",
+    "typescript": "^5.3.3"
+  }
+}
