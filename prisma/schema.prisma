@@ -16,13 +16,8 @@ model User {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   tasks     Task[]
-  @@map("users")
-}
 
-enum TaskStatus {
-  PENDING
-  IN_PROGRESS
-  COMPLETED
+  @@map("users")
 }
 
 model Task {
@@ -34,5 +29,12 @@ model Task {
   updatedAt   DateTime   @updatedAt @map("updated_at")
   userId      String     @map("user_id")
   user        User       @relation(fields: [userId], references: [id])
+
   @@map("tasks")
+}
+
+enum TaskStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
 }
