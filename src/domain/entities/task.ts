@@ -58,6 +58,14 @@ export class Task {
     return this.props.userId;
   }
 
+  public get createdAt() {
+    return this.props.createdAt;
+  }
+
+  public get updatedAt() {
+    return this.props.updatedAt;
+  }
+
   private touch() {
     this.props.updatedAt = new Date();
   }

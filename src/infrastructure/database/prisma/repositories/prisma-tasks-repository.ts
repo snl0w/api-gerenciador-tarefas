@@ -33,8 +33,15 @@ export class PrismaTasksRepository implements ITasksRepository {
     });
   }
 
-  async findMany(filters: FindManyFilters): Promise<Task[]> {
-    throw new Error('Method not implemented.');
+  async findMany({ userId, status }: FindManyFilters): Promise<Task[]> {
+    const tasks = await prisma.task.findMany({
+      where: {
+        userId,
+        status,
+      },
+    });
+
+    return tasks.map(PrismaTaskMapper.toDomain);
   }
 
   async delete(id: string): Promise<void> {
