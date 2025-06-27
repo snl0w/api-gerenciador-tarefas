@@ -1,8 +1,7 @@
-// src/server.ts
 import 'dotenv/config';
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
-import { createUserController } from 'C:/api-gerenciador-tarefas/src/interfaces/http/controllers/create-user-controller';
+import { createUserController } from '@/interfaces/http/controllers/create-user-controller';
 
 const port = parseInt(process.env.PORT || '3333', 10);
 const app = Fastify({ logger: true });

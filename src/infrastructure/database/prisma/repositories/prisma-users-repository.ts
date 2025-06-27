@@ -1,7 +1,7 @@
-import { IUsersRepository } from 'C:/api-gerenciador-tarefas/src/domain/repositories/IUsersRepository';
-import { prisma } from 'C:/api-gerenciador-tarefas/src/infrastructure/database/prisma/mappers/client';
-import { User } from 'C:/api-gerenciador-tarefas/src/domain/entities/user';
-import { PrismaUserMapper } from '../mappers/prisma-user-mapper';
+import { IUsersRepository } from '@/domain/repositories/IUsersRepository';
+import { prisma } from '@/infrastructure/database/prisma/mappers/client';
+import { User } from '@/domain/entities/user';
+import { PrismaUserMapper } from '@/infrastructure/database/prisma/mappers/prisma-user-mapper';
 
 export class PrismaUsersRepository implements IUsersRepository {
   async create(user: User): Promise<void> {

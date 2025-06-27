@@ -1,6 +1,6 @@
 // src/infrastructure/database/prisma/mappers/prisma-user-mapper.ts
 import { User as PrismaUser } from '@prisma/client';
-import { User } from 'C:/api-gerenciador-tarefas/src/domain/entities/user';
+import { User } from '@/domain/entities/user';
 
 // Converte entre o formato do Domínio e o formato do Prisma
 export class PrismaUserMapper {
