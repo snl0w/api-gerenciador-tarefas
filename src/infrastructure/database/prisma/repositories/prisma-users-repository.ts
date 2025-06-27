@@ -9,6 +9,17 @@ export class PrismaUsersRepository implements IUsersRepository {
     await prisma.user.create({ data });
   }
 
+  async save(user: User): Promise<void> {
+    const data = PrismaUserMapper.toPrisma(user);
+
+    await prisma.user.update({
+      where: {
+        id: user.id,
+      },
+      data: data,
+    });
+  }
+
   async findByEmail(email: string): Promise<User | null> {
     const user = await prisma.user.findUnique({
       where: { email },

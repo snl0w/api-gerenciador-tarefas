@@ -3,6 +3,7 @@ import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import { createUserController } from '@/interfaces/http/controllers/create-user-controller';
 import { createTaskController } from '@/interfaces/http/controllers/create-task-controller.js';
+import { editUserController } from '@/interfaces/http/controllers/edit-user-controller.js';
 
 const port = parseInt(process.env.PORT || '3333', 10);
 const app = Fastify({ logger: true });
@@ -10,6 +11,7 @@ const app = Fastify({ logger: true });
 app.register(cors, { origin: '*' });
 
 app.post('/users', createUserController);
+app.put('/users/:id', editUserController);
 app.post('/tasks', createTaskController);
 
 app.get('/', async () => {
