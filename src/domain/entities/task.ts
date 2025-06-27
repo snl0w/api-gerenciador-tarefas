@@ -11,7 +11,6 @@ export interface TaskProps {
   updatedAt?: Date;
 }
 
-// CORREÇÃO: Adicionada a palavra "export"
 export class Task {
   private _id: string;
   private props: TaskProps;

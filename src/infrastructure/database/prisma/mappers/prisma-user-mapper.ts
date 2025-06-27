@@ -1,15 +1,13 @@
-// src/infrastructure/database/prisma/mappers/prisma-user-mapper.ts
 import { User as PrismaUser } from '@prisma/client';
 import { User } from '@/domain/entities/user';
 
-// Converte entre o formato do Domínio e o formato do Prisma
 export class PrismaUserMapper {
   static toPrisma(user: User) {
     return {
       id: user.id,
       name: user.name,
       email: user.email,
-      password: user.password_hash, // Note a mudança de nome
+      password: user.password_hash,
     };
   }
 
