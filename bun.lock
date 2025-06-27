@@ -8,7 +8,7 @@
         "@prisma/client": "5.10.2",
         "dotenv": "^16.4.5",
         "fastify": "^4.26.2",
-        "zod": "^3.22.4",
+        "zod": "^3.22.4"
       },
       "devDependencies": {
         "@types/bun": "latest",
@@ -17,9 +17,9 @@
         "eslint-config-prettier": "^9.1.0",
         "prettier": "^3.2.5",
         "prisma": "5.10.2",
-        "typescript": "^5.3.3",
-      },
-    },
+        "typescript": "^5.3.3"
+      }
+    }
   },
   "packages": {
     "@eslint-community/eslint-utils": ["@eslint-community/eslint-utils@4.7.0", "", { "dependencies": { "eslint-visitor-keys": "^3.4.3" }, "peerDependencies": { "eslint": "^6.0.0 || ^7.0.0 || >=8.0.0" } }, "sha512-dyybb3AcajC7uha6CvhdVRJqaKyn7w2YKqKyAN37NKYgZT36w+iRb0Dymmc5qEJ549c/S31cMMSFd75bteCpCw=="],
@@ -362,6 +362,6 @@
 
     "fast-json-stringify/ajv/fast-uri": ["fast-uri@3.0.6", "", {}, "sha512-Atfo14OibSv5wAp4VWNsFYE1AchQRTv9cBGWET4pZWHzYshFSS9NQI6I57rdKn9croWVMbYFbLhJ+yJvmZIIHw=="],
 
-    "fast-json-stringify/ajv/json-schema-traverse": ["json-schema-traverse@1.0.0", "", {}, "sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug=="],
+    "fast-json-stringify/ajv/json-schema-traverse": ["json-schema-traverse@1.0.0", "", {}, "sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug=="]
   }
 }
