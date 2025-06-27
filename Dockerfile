@@ -1,14 +1,14 @@
-FROM oven/bun:1.0 as base
+FROM oven/bun:1.0
 
 WORKDIR /usr/src/app
 
-COPY package.json bun.lock ./
+COPY package.json bun.lock /usr/src/app/
 
 RUN bun install
 
-COPY prisma ./prisma/
+COPY . .
 
-COPY src ./src
+RUN bunx prisma generate
 
 EXPOSE 3333
 

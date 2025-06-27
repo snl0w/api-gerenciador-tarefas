@@ -1,7 +1,4 @@
 services:
-  # --------------------------------------------------
-  # Serviço da API
-  # --------------------------------------------------
   api:
     build: .
     container_name: task_manager_api
@@ -15,10 +12,9 @@ services:
       - db
     env_file:
       - .env
+    command: >
+      sh -c "bunx prisma generate && bun src/server.ts"
 
-  # --------------------------------------------------
-  # Serviço do Banco de Dados PostgreSQL
-  # --------------------------------------------------
   db:
     image: postgres:15-alpine
     container_name: task_manager_db
