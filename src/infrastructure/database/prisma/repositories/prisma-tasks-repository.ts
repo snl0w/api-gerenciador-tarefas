@@ -45,6 +45,10 @@ export class PrismaTasksRepository implements ITasksRepository {
   }
 
   async delete(id: string): Promise<void> {
-    throw new Error('Method not implemented.');
+    await prisma.task.delete({
+      where: {
+        id,
+      },
+    });
   }
 }
