@@ -49,7 +49,7 @@ O projeto segue uma arquitetura em camadas para isolar o núcleo de regras de ne
 1.  **Clone o repositório:**
 
     ```bash
-    git clone https://github.com/snl0w/api-gerenciador-tarefas.git
+    git clone [https://github.com/snl0w/api-gerenciador-tarefas.git](https://github.com/snl0w/api-gerenciador-tarefas.git)
     cd api-gerenciador-tarefas
     ```
 
@@ -81,13 +81,108 @@ O projeto segue uma arquitetura em camadas para isolar o núcleo de regras de ne
 
 A API estará agora acessível em `http://localhost:3333`.
 
-## 🧪 Endpoints da API
+## 🛠️ Como Usar a API (Guia de Testes)
 
-- `POST /users` - Cria um novo usuário.
-- `PUT /users/:id` - Edita o nome de um usuário.
-- `POST /tasks` - Cria uma nova tarefa.
-- `GET /tasks` - Lista todas as tarefas.
-- `GET /tasks?userId=:userId&status=:status` - Lista tarefas com filtros.
-- `PUT /tasks/:id` - Edita o título e a descrição de uma tarefa.
-- `PATCH /tasks/:id/status` - Atualiza o status de uma tarefa.
-- `DELETE /tasks/:id` - Deleta uma tarefa.
+Como esta aplicação é uma API de backend, é necessário usar uma ferramenta de cliente HTTP para interagir com os endpoints.
+
+**Recomendações de Ferramentas:**
+
+- **[Insomnia](https://insomnia.rest/download)** (Recomendado)
+- **[Postman](https://www.postman.com/downloads/)**
+
+> **Nota:** Para obter os `:id` de usuários ou tarefas necessários para os exemplos abaixo, você pode primeiro criá-los e depois usar o Prisma Studio (`bun run db:studio` com as devidas alterações no `.env`) ou o endpoint `GET /tasks` para visualizar os IDs gerados.
+
+---
+
+### 1. Criar um Novo Usuário
+
+- **Método:** `POST`
+- **URL:** `http://localhost:3333/users`
+- **Corpo (Body - JSON):**
+  ```json
+  {
+    "name": "Bruce Wayne",
+    "email": "bruce@example.com",
+    "password": "password123"
+  }
+  ```
+- **Resposta Esperada:** `Status: 201 Created`
+
+---
+
+### 2. Editar um Usuário
+
+- **Método:** `PUT`
+- **URL:** `http://localhost:3333/users/:id` (substitua `:id` pelo ID do usuário)
+- **Corpo (Body - JSON):**
+  ```json
+  {
+    "name": "Batman"
+  }
+  ```
+- **Resposta Esperada:** `Status: 204 No Content`
+
+---
+
+### 3. Criar uma Nova Tarefa
+
+- **Método:** `POST`
+- **URL:** `http://localhost:3333/tasks`
+- **Corpo (Body - JSON):** (substitua o `userId` pelo ID de um usuário existente)
+  ```json
+  {
+    "title": "Conquistar Gotham",
+    "description": "Elaborar um plano para garantir a segurança da cidade.",
+    "userId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  }
+  ```
+- **Resposta Esperada:** `Status: 201 Created`
+
+---
+
+### 4. Editar uma Tarefa
+
+- **Método:** `PUT`
+- **URL:** `http://localhost:3333/tasks/:id` (substitua `:id` pelo ID da tarefa)
+- **Corpo (Body - JSON):**
+  ```json
+  {
+    "title": "Salvar Gotham City",
+    "description": "O plano já está em andamento."
+  }
+  ```
+- **Resposta Esperada:** `Status: 204 No Content`
+
+---
+
+### 5. Atualizar Status de uma Tarefa
+
+- **Método:** `PATCH`
+- **URL:** `http://localhost:3333/tasks/:id/status` (substitua `:id` pelo ID da tarefa)
+- **Corpo (Body - JSON):**
+  ```json
+  {
+    "status": "IN_PROGRESS"
+  }
+  ```
+- **Resposta Esperada:** `Status: 204 No Content`
+
+---
+
+### 6. Listar Tarefas com Filtros
+
+- **Método:** `GET`
+- **Exemplos de URLs:**
+  - `http://localhost:3333/tasks` (lista todas as tarefas)
+  - `http://localhost:3333/tasks?status=COMPLETED` (lista tarefas concluídas)
+  - `http://localhost:3333/tasks?userId=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (lista tarefas de um usuário)
+- **Resposta Esperada:** `Status: 200 OK` e um array com as tarefas.
+
+---
+
+### 7. Deletar uma Tarefa
+
+- **Método:** `DELETE`
+- **URL:** `http://localhost:3333/tasks/:id` (substitua `:id` pelo ID da tarefa)
+- **Corpo:** Nenhum (No Body)
+- **Resposta Esperada:** `Status: 204 No Content`
