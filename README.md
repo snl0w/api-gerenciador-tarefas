@@ -74,14 +74,30 @@ O projeto segue uma arquitetura em camadas para isolar o núcleo de regras de ne
     ```
 
 4.  **Aplique as migrações da base de dados:**
-    Com os containers a correr, execute o comando abaixo para criar as tabelas na base de dados.
+    Com os containers em execução, execute o comando abaixo para criar as tabelas na base de dados.
     ```bash
     docker-compose exec api bunx prisma migrate dev
     ```
 
 A API estará agora acessível em `http://localhost:3333`.
 
-## 🛠️ Como Usar a API (Guia de Testes)
+## 🧪 Executando os Testes
+
+Os testes foram implementados principalmente na camada application, cobrindo os casos de uso principais.
+
+A abordagem de testes utiliza:
+-   O runner de testes nativo do Bun (`bun test`).
+-   Repositórios "em memória" para isolar os casos de uso da base de dados, permitindo testes rápidos e confiáveis.
+
+Para executar todos os testes, rode o seguinte comando no seu terminal:
+
+```bash
+bun test
+```
+
+Os arquivos de teste podem ser encontrados ao lado dos casos de uso que eles testam, com o sufixo `.test.ts`.
+
+## 🛠️ Como Usar a API (Testes Manuais)
 
 Como esta aplicação é uma API de backend, é necessário usar uma ferramenta de cliente HTTP para interagir com os endpoints.
 
@@ -98,7 +114,7 @@ Como esta aplicação é uma API de backend, é necessário usar uma ferramenta 
 
 - **Método:** `POST`
 - **URL:** `http://localhost:3333/users`
-- **Corpo (Body - JSON):**
+- **Corpo (JSON):**
   ```json
   {
     "name": "Bruce Wayne",
@@ -114,7 +130,7 @@ Como esta aplicação é uma API de backend, é necessário usar uma ferramenta 
 
 - **Método:** `PUT`
 - **URL:** `http://localhost:3333/users/:id` (substitua `:id` pelo ID do usuário)
-- **Corpo (Body - JSON):**
+- **Corpo (JSON):**
   ```json
   {
     "name": "Batman"
@@ -128,7 +144,7 @@ Como esta aplicação é uma API de backend, é necessário usar uma ferramenta 
 
 - **Método:** `POST`
 - **URL:** `http://localhost:3333/tasks`
-- **Corpo (Body - JSON):** (substitua o `userId` pelo ID de um usuário existente)
+- **Corpo (JSON):** (substitua o `userId` pelo ID de um usuário existente)
   ```json
   {
     "title": "Conquistar Gotham",
@@ -144,7 +160,7 @@ Como esta aplicação é uma API de backend, é necessário usar uma ferramenta 
 
 - **Método:** `PUT`
 - **URL:** `http://localhost:3333/tasks/:id` (substitua `:id` pelo ID da tarefa)
-- **Corpo (Body - JSON):**
+- **Corpo (JSON):**
   ```json
   {
     "title": "Salvar Gotham City",
@@ -159,7 +175,7 @@ Como esta aplicação é uma API de backend, é necessário usar uma ferramenta 
 
 - **Método:** `PATCH`
 - **URL:** `http://localhost:3333/tasks/:id/status` (substitua `:id` pelo ID da tarefa)
-- **Corpo (Body - JSON):**
+- **Corpo (JSON):**
   ```json
   {
     "status": "IN_PROGRESS"
