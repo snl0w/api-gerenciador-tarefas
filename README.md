@@ -49,8 +49,8 @@ O projeto segue uma arquitetura em camadas para isolar o núcleo de regras de ne
 1.  **Clone o repositório:**
 
     ```bash
-    git clone <URL_DO_SEU_REPOSITORIO>
-    cd <NOME_DA_PASTA>
+    git clone https://github.com/snl0w/api-gerenciador-tarefas.git
+    cd api-gerenciador-tarefas
     ```
 
 2.  **Crie o ficheiro de variáveis de ambiente (`.env`):**
