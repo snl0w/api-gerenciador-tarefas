@@ -49,7 +49,7 @@ O projeto segue uma arquitetura em camadas para isolar o núcleo de regras de ne
 1.  **Clone o repositório:**
 
     ```bash
-    git clone [https://github.com/snl0w/api-gerenciador-tarefas.git](https://github.com/snl0w/api-gerenciador-tarefas.git)
+    git clone https://github.com/snl0w/api-gerenciador-tarefas.git
     cd api-gerenciador-tarefas
     ```
 
