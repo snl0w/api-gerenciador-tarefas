@@ -53,7 +53,7 @@ O projeto segue uma arquitetura em camadas para isolar o núcleo de regras de ne
     cd api-gerenciador-tarefas
     ```
 
-2.  **Crie o ficheiro de variáveis de ambiente (`.env`):**
+2.  **Crie o arquivo de variáveis de ambiente (`.env`):**
     Crie um ficheiro chamado `.env` na raiz do projeto com o seguinte conteúdo.
 
     ```
